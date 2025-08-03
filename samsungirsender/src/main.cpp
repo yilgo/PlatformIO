@@ -104,9 +104,10 @@ void setup() {
 void loop() {
   ///put your main code here, to run repeatedly:
     if(IR_BTN_PIN & (1 << IR_BTN )){
+      //delay for button sparks.
       delay(50);
-      sendActiveSignal(4500);
-      idle(4500);
+      sendActiveSignal(4500); //send start bit
+      idle(4500); // send idle part of start bit
       sendIR(0x0707, CHANNEL_PLUS);
     }
 }
